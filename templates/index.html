@@ -58,14 +58,14 @@
                 BodySetBackgroundColor('RGB(0,0,0)');
                 BodySetColor('white');
                 LinkSetColor('powderblue')
-                $("#ajax-ul").css("background-color", "black");
+
                 self.value = '다크모드';
             }
             else {
                 BodySetBackgroundColor('white');
                 BodySetColor('black');
                 LinkSetColor('blue')
-                $("#ajax-ul").css("background-color", "#e4e4da");
+
                 self.value = '라이트모드';
             }
         }
@@ -116,7 +116,7 @@
               나이 : ${data.age}
           </li>
         `)
-        $("#ajax-ul").css("background-color", "#e4e4da");
+
                 }
 
     }
@@ -147,7 +147,27 @@
         age: age
       },
       success: function(response){
-        location.reload()
+        $.ajax({
+            type : "GET",
+            url : "/practice2",
+            data:{},
+            success: function(response){
+              // console.log(response)
+              $("#ajax-ul").empty()
+              for (let data of response){
+
+                $("#ajax-ul").append(`
+                  <li>
+                      id: ${data.id},
+                      이름 : ${data.name},
+                      나이 : ${data.age}
+                  </li>
+                `)
+
+                        }
+
+    }
+  })
       }
     })
   }
@@ -165,7 +185,27 @@
         age:age
       },
       success: function(response){
-        location.reload()
+        $.ajax({
+            type : "GET",
+            url : "/practice2",
+            data:{},
+            success: function(response){
+              // console.log(response)
+              $("#ajax-ul").empty()
+              for (let data of response){
+
+                $("#ajax-ul").append(`
+                  <li>
+                      id: ${data.id},
+                      이름 : ${data.name},
+                      나이 : ${data.age}
+                  </li>
+                `)
+
+                        }
+
+    }
+  })
       }
 
     })
@@ -178,7 +218,27 @@
       url:`/practice2?id=${id}`,
       data:{},
       success: function(response){
-        location.reload()
+        $.ajax({
+            type : "GET",
+            url : "/practice2",
+            data:{},
+            success: function(response){
+              // console.log(response)
+              $("#ajax-ul").empty()
+              for (let data of response){
+
+                $("#ajax-ul").append(`
+                  <li>
+                      id: ${data.id},
+                      이름 : ${data.name},
+                      나이 : ${data.age}
+                  </li>
+                `)
+
+                        }
+
+    }
+  })
       }
     })
   }
